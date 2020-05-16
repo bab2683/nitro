@@ -11,5 +11,31 @@
     <p class="post__text">
       {{ post.text }}
     </p>
+    <button class="post__edit-cta" type="submit" (click)="editing = !editing">
+      {{ editing ? "Close" : "Edit" }}
+    </button>
+    <div class="post__edit" *ngIf="editing">
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="post__edit__controls">
+          <div *ngFor="let field of editableFields">
+            <label class="post__edit__label" [for]="field">{{ field }}</label>
+            <input
+              class="post__edit__input"
+              type="text"
+              [formControlName]="field"
+            />
+            <p
+              class="post__edit__error"
+              *ngIf="
+                !form.valid && form.dirty && submitted && !form.get(field).valid
+              "
+            >
+              {{ field }} cannot be empty
+            </p>
+          </div>
+        </div>
+        <button class="post__edit__cta" type="submit">Save changes</button>
+      </form>
+    </div>
   </div>
 </div>

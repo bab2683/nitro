@@ -1,17 +1,21 @@
 @import "common";
 
+@mixin cta {
+  background-color: color("accent");
+  border-radius: calc-spacing();
+  color: color("white");
+  display: block;
+  padding: calc-spacing(2);
+  transition: background-color 200ms ease-in-out, color 200ms ease-in-out;
+
+  &:hover {
+    background-color: color("accent-light-20");
+  }
+}
+
 .post {
   &__cta {
-    background-color: color("accent");
-    border-radius: calc-spacing();
-    color: color("white");
-    display: block;
-    padding: calc-spacing(2);
-    transition: background-color 200ms ease-in-out, color 200ms ease-in-out;
-
-    &:hover {
-      background-color: color("accent-light-20");
-    }
+    @include cta;
   }
 
   &__date {
@@ -28,5 +32,46 @@
     color: color("white");
     margin: calc-spacing(2) 0 0 calc-spacing(2);
     padding: calc-spacing(2);
+  }
+
+  &__edit-cta {
+    margin-top: calc-spacing(2);
+    @include cta;
+  }
+
+  &__edit {
+    border: 1px solid color("white");
+    border-radius: calc-spacing(1);
+    margin-top: calc-spacing(2);
+    padding: calc-spacing(2);
+
+    &__controls {
+      display: grid;
+      grid-gap: calc-spacing(2);
+      grid-template-columns: 1fr 1fr;
+    }
+
+    &__error {
+      color: color("accent");
+    }
+
+    &__label {
+      text-transform: capitalize;
+    }
+
+    &__input {
+      background-color: color("white");
+      border-radius: calc-spacing(1);
+      color: color("grey");
+      display: block;
+      margin-top: calc-spacing(1);
+      padding: calc-spacing(2);
+      width: 100%;
+    }
+
+    &__cta {
+      margin-top: calc-spacing(2);
+      @include cta;
+    }
   }
 }
