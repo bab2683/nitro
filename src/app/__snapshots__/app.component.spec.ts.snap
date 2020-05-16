@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppComponent ngOnInit should request the posts 1`] = `
+Array [
+  Object {
+    "author": "Happy User",
+    "date": 2020-02-28T00:00:00.000Z,
+    "id": 1,
+    "location": "San Francisco",
+    "open": false,
+    "summary": "Proper PDF conversion ensures...",
+    "text": "Proper PDF conversion ensures that every element of your document remains just as you left it.",
+    "time": "1582848000000",
+    "weekNumber": 9,
+  },
+  Object {
+    "author": "Happy User",
+    "date": 2020-02-28T00:00:00.000Z,
+    "id": 2,
+    "location": "San Francisco",
+    "open": false,
+    "summary": "Proper PDF conversion ensures...",
+    "text": "Proper PDF conversion ensures that every element of your document remains just as you left it.",
+    "time": "1582848000000",
+    "weekNumber": 9,
+  },
+]
+`;
+
+exports[`AppComponent ngOnInit should request the posts 2`] = `
+Array [
+  Object {
+    "items": Array [
+      Object {
+        "author": "Happy User",
+        "date": 2020-02-28T00:00:00.000Z,
+        "id": 1,
+        "location": "San Francisco",
+        "open": false,
+        "summary": "Proper PDF conversion ensures...",
+        "text": "Proper PDF conversion ensures that every element of your document remains just as you left it.",
+        "time": "1582848000000",
+        "weekNumber": 9,
+      },
+      Object {
+        "author": "Happy User",
+        "date": 2020-02-28T00:00:00.000Z,
+        "id": 2,
+        "location": "San Francisco",
+        "open": false,
+        "summary": "Proper PDF conversion ensures...",
+        "text": "Proper PDF conversion ensures that every element of your document remains just as you left it.",
+        "time": "1582848000000",
+        "weekNumber": 9,
+      },
+    ],
+    "name": "9",
+    "open": false,
+  },
+]
+`;

@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PostComponent should match snapshot 1`] = `
+<app-post
+  editableFields={[Function Array]}
+  editing="false"
+  fb={[Function FormBuilder]}
+  form={[Function FormGroup]}
+  post={[Function Object]}
+  submitted="false"
+>
+  <div
+    class="post"
+  >
+    <button
+      class="post__cta"
+      type="button"
+    >
+        
+    </button>
+    
+  </div>
+</app-post>
+`;
+
+exports[`PostComponent should match snapshot when post is opened 1`] = `
+<app-post
+  editableFields={[Function Array]}
+  editing="false"
+  fb={[Function FormBuilder]}
+  form={[Function FormGroup]}
+  post={[Function Object]}
+  submitted="false"
+>
+  <div
+    class="post"
+  >
+    <button
+      class="post__cta"
+      type="button"
+    >
+        
+    </button>
+    
+    <div
+      class="post__content"
+    >
+      <h2>
+        Braulio
+      </h2>
+      <p
+        class="post__date"
+      >
+         Dublin - 16/05/2020 
+      </p>
+      <p
+        class="post__text"
+      >
+          
+      </p>
+      <button
+        class="post__edit-cta"
+        type="submit"
+      >
+         Edit 
+      </button>
+      
+    </div>
+  </div>
+</app-post>
+`;
