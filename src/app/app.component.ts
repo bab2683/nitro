@@ -52,7 +52,6 @@ export class AppComponent implements OnInit {
       map(([key, posts]) =>
         posts.reduce((result, current) => {
           current.open = false;
-
           if (result[current[key]]) {
             result[current[key]].push(current);
           } else {

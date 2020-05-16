@@ -1,0 +1,51 @@
+@import "common";
+
+:host {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.page {
+  flex-grow: 1;
+
+  &__content {
+    margin: calc-spacing(2) auto calc-spacing(3);
+
+    @include max-content-width;
+  }
+
+  &__title {
+    margin-bottom: calc-spacing(2);
+  }
+
+  &__posts {
+    padding: calc-spacing(2);
+
+    &__post {
+      & + & {
+        display: block;
+        margin-top: calc-spacing(2);
+      }
+    }
+  }
+
+  &__group {
+    & + & {
+      margin-top: calc-spacing(3);
+    }
+
+    &__cta {
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    &__content {
+      padding: calc-spacing(2) 0 0 calc-spacing(2);
+    }
+  }
+
+  &__group {
+  }
+}

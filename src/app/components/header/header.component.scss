@@ -1,0 +1,33 @@
+@import "common";
+
+:host {
+  background-color: color("main");
+  color: color("white");
+}
+
+.header {
+  margin: 0 auto;
+  padding: calc-spacing(3);
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    @include max-content-width;
+  }
+
+  &__area {
+    display: flex;
+  }
+
+  &__group {
+    & + & {
+      margin-left: calc-spacing(2);
+    }
+
+    &__label {
+      display: inline-block;
+      margin-left: calc-spacing(2);
+    }
+  }
+}

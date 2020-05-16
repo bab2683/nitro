@@ -1,0 +1,7 @@
+@function calc-spacing($multiplier: 1) {
+  @return $base-spacing * $multiplier;
+}
+
+@function calc-fz($multiplier: 1) {
+  @return $base-font-size * $multiplier;
+}

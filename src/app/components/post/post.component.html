@@ -1,0 +1,15 @@
+<div class="post">
+  <button class="post__cta" type="button" (click)="post.open = !post.open">
+    {{ post.summary }}
+  </button>
+
+  <div class="post__content" *ngIf="post.open">
+    <h2>{{ post.author }}</h2>
+    <p class="post__date">
+      {{ post.location }} - {{ post.date | date: "dd/MM/yyyy" }}
+    </p>
+    <p class="post__text">
+      {{ post.text }}
+    </p>
+  </div>
+</div>

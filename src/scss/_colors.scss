@@ -1,0 +1,39 @@
+$main: #086f7b;
+$accent: #ee5b21;
+$background: #101010;
+$white: #fff;
+$grey: #39393a;
+
+$colors: (
+  "white": $white,
+  "grey": $grey,
+  "main": $main,
+  "accent": $accent,
+  "background": $background,
+);
+@function color($name) {
+  $mapped-color: map-get($colors, $name);
+
+  @if ($mapped-color) {
+    @return var(--color-#{$name});
+  } @else {
+    @error "#{$name} color does not exist";
+  }
+}
+
+@function get-shades($color-name, $color) {
+  $map: (
+    #{$color-name}-light-10: mix($white, $color, 10),
+    #{$color-name}-light-20: mix($white, $color, 20),
+    #{$color-name}-light-30: mix($white, $color, 30),
+    #{$color-name}-light-40: mix($white, $color, 40),
+    #{$color-name}-light-50: mix($white, $color, 50),
+    #{$color-name}-light-60: mix($white, $color, 60),
+    #{$color-name}-light-70: mix($white, $color, 70),
+    #{$color-name}-light-80: mix($white, $color, 80),
+    #{$color-name}-light-90: mix($white, $color, 90)
+  );
+
+  @return $map;
+}
+$colors: map-merge($colors, get-shades("accent", $accent));

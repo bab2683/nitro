@@ -1,0 +1,19 @@
+<header class="header">
+  <div class="header__content">
+    <div class="header__area">
+      Nitro exercise
+    </div>
+    <div class="header__area">
+      <div class="header__group" *ngFor="let item of groupingChoices">
+        <input
+          type="radio"
+          name="grouping"
+          [value]="item"
+          [checked]="active === item"
+          (click)="selected.emit(item)"
+        />
+        <label class="header__group__label" for="grouping">{{ item }}</label>
+      </div>
+    </div>
+  </div>
+</header>
