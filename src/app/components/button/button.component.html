@@ -1,0 +1,8 @@
+<button
+  type="button"
+  class="button"
+  [ngClass]="{ button__open: open }"
+  (click)="clicked.emit()"
+>
+  <ng-content></ng-content>
+</button>

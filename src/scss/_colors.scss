@@ -37,3 +37,4 @@ $colors: (
   @return $map;
 }
 $colors: map-merge($colors, get-shades("accent", $accent));
+$colors: map-merge($colors, get-shades("main", $main));

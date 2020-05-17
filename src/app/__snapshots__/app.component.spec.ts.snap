@@ -32,30 +32,40 @@ Array [
   Object {
     "items": Array [
       Object {
-        "author": "Happy User",
-        "date": 2020-02-28T00:00:00.000Z,
-        "id": 1,
-        "location": "San Francisco",
-        "open": false,
-        "summary": "Proper PDF conversion ensures...",
-        "text": "Proper PDF conversion ensures that every element of your document remains just as you left it.",
-        "time": "1582848000000",
-        "weekNumber": 9,
-      },
-      Object {
-        "author": "Happy User",
-        "date": 2020-02-28T00:00:00.000Z,
-        "id": 2,
-        "location": "San Francisco",
-        "open": false,
-        "summary": "Proper PDF conversion ensures...",
-        "text": "Proper PDF conversion ensures that every element of your document remains just as you left it.",
-        "time": "1582848000000",
-        "weekNumber": 9,
+        "items": Array [
+          Object {
+            "content": Object {
+              "author": "Happy User",
+              "date": 2020-02-28T00:00:00.000Z,
+              "id": 1,
+              "location": "San Francisco",
+              "open": false,
+              "summary": "Proper PDF conversion ensures...",
+              "text": "Proper PDF conversion ensures that every element of your document remains just as you left it.",
+              "time": "1582848000000",
+              "weekNumber": 9,
+            },
+            "title": "Proper PDF conversion ensures...",
+          },
+          Object {
+            "content": Object {
+              "author": "Happy User",
+              "date": 2020-02-28T00:00:00.000Z,
+              "id": 2,
+              "location": "San Francisco",
+              "open": false,
+              "summary": "Proper PDF conversion ensures...",
+              "text": "Proper PDF conversion ensures that every element of your document remains just as you left it.",
+              "time": "1582848000000",
+              "weekNumber": 9,
+            },
+            "title": "Proper PDF conversion ensures...",
+          },
+        ],
+        "title": "weekNumber: 9",
       },
     ],
-    "name": "9",
-    "open": false,
+    "title": "Posts",
   },
 ]
 `;

@@ -1,0 +1,15 @@
+@import "common";
+
+.tree-arrow {
+  display: inline-block;
+  transition: transform 200ms linear;
+
+  &--open {
+    transform: rotate(90deg);
+  }
+}
+
+.tree-content {
+  margin-top: calc-spacing(1);
+  padding-left: calc-spacing(4);
+}

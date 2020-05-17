@@ -1,0 +1,12 @@
+<app-button [open]="open" (clicked)="open = !open">
+  {{ data.title }}
+  <span class="tree-arrow" [ngClass]="{ 'tree-arrow--open': open }">►</span>
+</app-button>
+<div class="tree-content" *ngIf="open">
+  <app-tree-view *ngIf="data.items" [data]="data.items"></app-tree-view>
+  <app-post
+    *ngIf="data.content"
+    class="page__posts__post"
+    [post]="data.content"
+  ></app-post>
+</div>

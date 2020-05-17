@@ -12,36 +12,6 @@ exports[`PostComponent should match snapshot 1`] = `
   <div
     class="post"
   >
-    <button
-      class="post__cta"
-      type="button"
-    >
-        
-    </button>
-    
-  </div>
-</app-post>
-`;
-
-exports[`PostComponent should match snapshot when post is opened 1`] = `
-<app-post
-  editableFields={[Function Array]}
-  editing="false"
-  fb={[Function FormBuilder]}
-  form={[Function FormGroup]}
-  post={[Function Object]}
-  submitted="false"
->
-  <div
-    class="post"
-  >
-    <button
-      class="post__cta"
-      type="button"
-    >
-        
-    </button>
-    
     <div
       class="post__content"
     >
@@ -58,13 +28,96 @@ exports[`PostComponent should match snapshot when post is opened 1`] = `
       >
           
       </p>
-      <button
+      <app-button
         class="post__edit-cta"
-        type="submit"
       >
-         Edit 
-      </button>
+         Edit
+      </app-button>
       
+    </div>
+  </div>
+</app-post>
+`;
+
+exports[`PostComponent should match snapshot when edit panel is open 1`] = `
+<app-post
+  editableFields={[Function Array]}
+  editing={[Function Boolean]}
+  fb={[Function FormBuilder]}
+  form={[Function FormGroup]}
+  post={[Function Object]}
+  submitted="false"
+>
+  <div
+    class="post"
+  >
+    <div
+      class="post__content"
+    >
+      <h2>
+        Braulio
+      </h2>
+      <p
+        class="post__date"
+      >
+         Dublin - 16/05/2020 
+      </p>
+      <p
+        class="post__text"
+      >
+          
+      </p>
+      <app-button
+        class="post__edit-cta"
+      >
+         Close
+      </app-button>
+      
+      <div
+        class="post__edit"
+      >
+        <form
+          class="ng-untouched ng-pristine ng-valid"
+          novalidate=""
+        >
+          <div
+            class="post__edit__controls"
+          >
+            
+            <div>
+              <label
+                class="post__edit__label"
+                for="author"
+              >
+                author
+              </label>
+              <input
+                class="post__edit__input ng-untouched ng-pristine ng-valid"
+                type="text"
+              />
+              
+            </div>
+            <div>
+              <label
+                class="post__edit__label"
+                for="location"
+              >
+                location
+              </label>
+              <input
+                class="post__edit__input ng-untouched ng-pristine ng-valid"
+                type="text"
+              />
+              
+            </div>
+          </div>
+          <app-button
+            class="post__edit__cta"
+          >
+            Save changes
+          </app-button>
+        </form>
+      </div>
     </div>
   </div>
 </app-post>

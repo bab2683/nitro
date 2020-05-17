@@ -1,9 +1,5 @@
 <div class="post">
-  <button class="post__cta" type="button" (click)="post.open = !post.open">
-    {{ post.summary }}
-  </button>
-
-  <div class="post__content" *ngIf="post.open">
+  <div class="post__content">
     <h2>{{ post.author }}</h2>
     <p class="post__date">
       {{ post.location }} - {{ post.date | date: "dd/MM/yyyy" }}
@@ -11,9 +7,14 @@
     <p class="post__text">
       {{ post.text }}
     </p>
-    <button class="post__edit-cta" type="submit" (click)="editing = !editing">
-      {{ editing ? "Close" : "Edit" }}
-    </button>
+    <app-button
+      class="post__edit-cta"
+      [open]="editing"
+      (clicked)="editing = !editing"
+    >
+      {{ editing ? "Close" : "Edit" }}</app-button
+    >
+
     <div class="post__edit" *ngIf="editing">
       <form [formGroup]="form" (ngSubmit)="onSubmit()">
         <div class="post__edit__controls">
@@ -34,7 +35,9 @@
             </p>
           </div>
         </div>
-        <button class="post__edit__cta" type="submit">Save changes</button>
+        <app-button class="post__edit__cta" (clicked)="onSubmit()"
+          >Save changes</app-button
+        >
       </form>
     </div>
   </div>

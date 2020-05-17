@@ -10,9 +10,8 @@ describe('PostComponent', () => {
   let component: PostComponent;
   let fixture: ComponentFixture<PostComponent>;
   let formBuilder: FormBuilder;
-  let openPostButton: DebugElement;
   let editButton: DebugElement;
-  let saveButton: DebugElement;
+  let saveChangesButton: DebugElement;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -49,15 +48,6 @@ describe('PostComponent', () => {
     expect(fixture).toMatchSnapshot();
   });
 
-  it('should match snapshot when post is opened', () => {
-    openPostButton = fixture.debugElement.query(By.css('.post__cta'));
-    openPostButton.nativeElement.click();
-
-    fixture.detectChanges();
-
-    expect(fixture).toMatchSnapshot();
-  });
-
   describe('ngOnInit', () => {
     it('should create the form', () => {
       jest.spyOn(formBuilder, 'group');
@@ -69,19 +59,20 @@ describe('PostComponent', () => {
     });
   });
 
+  it('should match snapshot when edit panel is open', () => {
+    editButton = fixture.debugElement.query(By.css('.post__edit-cta'));
+
+    editButton.triggerEventHandler('clicked', null);
+    fixture.detectChanges();
+
+    expect(fixture).toMatchSnapshot();
+  });
+
   describe('onSubmit', () => {
     beforeEach(() => {
-      openPostButton = fixture.debugElement.query(By.css('.post__cta'));
-      openPostButton.nativeElement.click();
+      component.editing = true;
 
       fixture.detectChanges();
-
-      editButton = fixture.debugElement.query(By.css('.post__edit-cta'));
-      editButton.nativeElement.click();
-
-      fixture.detectChanges();
-
-      saveButton = fixture.debugElement.query(By.css('.post__edit__cta'));
     });
 
     it('should save the values', () => {
@@ -89,10 +80,15 @@ describe('PostComponent', () => {
         By.css('.post__edit__input')
       );
 
+      saveChangesButton = fixture.debugElement.query(
+        By.css('.post__edit__cta')
+      );
+
       jest.spyOn(component, 'onSubmit');
       authorField.nativeElement.value = 'Braulio Barahona';
 
-      saveButton.nativeElement.click();
+      saveChangesButton.triggerEventHandler('clicked', null);
+
       fixture.detectChanges();
       expect(component.onSubmit).toHaveBeenCalled();
     });

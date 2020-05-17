@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-import { ParsedPost, Post } from '@models';
+import { ParsedPost, Post, TreeData } from '@models';
 import { RequestService } from '@services';
 import { createSummary, dateDataFromString } from '@utils';
 
@@ -18,7 +18,7 @@ export class AppComponent implements OnInit {
     this.groupingChoices[0]
   );
   public posts$: Observable<ParsedPost[]>;
-  public postGroupedByKey$: Observable<any>;
+  public treeData$: Observable<TreeData<ParsedPost[]>[]>;
 
   constructor(private req: RequestService) {}
 
@@ -45,17 +45,15 @@ export class AppComponent implements OnInit {
         )
       );
 
-    this.postGroupedByKey$ = combineLatest(
-      this.keyToGroupPosts$,
-      this.posts$
-    ).pipe(
+    this.treeData$ = combineLatest(this.keyToGroupPosts$, this.posts$).pipe(
       map(([key, posts]) =>
         posts.reduce((result, current) => {
-          current.open = false;
-          if (result[current[key]]) {
-            result[current[key]].push(current);
+          const objKey: string = `${key}: ${current[key]}`;
+
+          if (result[objKey]) {
+            result[objKey].push(this.postToTreeElement(current));
           } else {
-            result[current[key]] = [current];
+            result[objKey] = [this.postToTreeElement(current)];
           }
           return result;
         }, {})
@@ -63,12 +61,23 @@ export class AppComponent implements OnInit {
       map((groupedPosts) =>
         Object.keys(groupedPosts).reduce(
           (result, current) =>
-            result.concat([
-              { name: current, items: groupedPosts[current], open: false },
-            ]),
+            result.concat([{ title: current, items: groupedPosts[current] }]),
           []
         )
-      )
+      ),
+      map((groupedPosts) => [
+        {
+          title: 'Posts',
+          items: groupedPosts,
+        },
+      ])
     );
+  }
+
+  private postToTreeElement(post: ParsedPost): TreeData<any, ParsedPost> {
+    return {
+      title: post.summary,
+      content: post,
+    };
   }
 }

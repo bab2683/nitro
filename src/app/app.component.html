@@ -5,28 +5,7 @@
 ></app-header>
 <main class="page">
   <div class="page__content">
-    <section
-      class="page__posts"
-      *ngIf="postGroupedByKey$ | async as groupedPosts"
-    >
-      <h1 class="page__title">Posts</h1>
-      <div class="page__group" *ngFor="let group of groupedPosts">
-        <button
-          class="page__group__cta"
-          type="button"
-          (click)="group.open = !group.open"
-        >
-          {{ activeChoice }} : {{ group.name }}
-        </button>
-        <div class="page__group__content" *ngIf="group.open">
-          <app-post
-            class="page__posts__post"
-            *ngFor="let post of group.items"
-            [post]="post"
-          ></app-post>
-        </div>
-      </div>
-    </section>
+    <app-tree-view [data]="treeData$ | async"></app-tree-view>
   </div>
 </main>
 <app-footer></app-footer>

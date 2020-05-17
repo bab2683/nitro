@@ -1,23 +1,6 @@
 @import "common";
 
-@mixin cta {
-  background-color: color("accent");
-  border-radius: calc-spacing();
-  color: color("white");
-  display: block;
-  padding: calc-spacing(2);
-  transition: background-color 200ms ease-in-out, color 200ms ease-in-out;
-
-  &:hover {
-    background-color: color("accent-light-20");
-  }
-}
-
 .post {
-  &__cta {
-    @include cta;
-  }
-
   &__date {
     font-size: calc-fz(0.8);
   }
@@ -35,8 +18,8 @@
   }
 
   &__edit-cta {
+    display: block;
     margin-top: calc-spacing(2);
-    @include cta;
   }
 
   &__edit {
@@ -70,8 +53,8 @@
     }
 
     &__cta {
+      display: block;
       margin-top: calc-spacing(2);
-      @include cta;
     }
   }
 }

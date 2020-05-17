@@ -76,7 +76,7 @@ describe('AppComponent', () => {
         expect(data).toMatchSnapshot();
       });
 
-      component.postGroupedByKey$.subscribe((data) => {
+      component.treeData$.subscribe((data) => {
         expect(data).toMatchSnapshot();
       });
     });
